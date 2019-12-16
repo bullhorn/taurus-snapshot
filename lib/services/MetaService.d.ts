@@ -20,9 +20,11 @@ export declare class MetaService {
     trackTrigger: string;
     allFieldsLoaded: boolean;
     parameters: any;
-    constructor(entity: string);
+    private readonly initialized;
+    constructor(entity: string, callingIdentifier?: string);
+    initialize(callingIdentifier?: string): Promise<void>;
     readonly endpoint: string;
-    private setFieldsOnLayout(meta, targetLayout);
+    private setFieldsOnLayout;
     /**
      * Define how much meta data to return
      */
@@ -36,16 +38,24 @@ export declare class MetaService {
      * Make http request to get meta data. Response data will be parsed, then the Promise will be resolved.
      */
     get(requested: string[], layout?: string): Promise<FieldMap[]>;
+    /**
+     * Make http request to get track data. Response data will be parsed, then the Promise will be resolved.
+     */
+    getTracks(): Promise<BullhornTrack[]>;
+    /**
+     * Make http request to get track data. Response data will be parsed, then the Promise will be resolved.
+     */
+    getFields(): Promise<FieldMap[]>;
     getAllLayouts(): Promise<any[]>;
     getFull(requested: string[], layout?: string): Promise<BullhornMetaResponse>;
     getByLayout(layout: string, keepFieldsFromLayout?: boolean): Promise<FieldMap[]>;
-    parse(result: any, keepFieldsFromLayout?: boolean): void;
-    missing(fields: any): string[];
+    private parse;
+    private missing;
     _clean(name: any): string;
     /**
      * Get specific meta data properties
      */
-    extract(fields: string[]): FieldMap[];
+    private extract;
     static validate(): Promise<boolean>;
-    static preload(entity: string): Promise<[FieldMap[], any[]]>;
+    static preload(entity: string, callingIdentifier?: string): Promise<[FieldMap[], any[]]>;
 }
