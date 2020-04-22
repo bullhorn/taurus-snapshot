@@ -26,7 +26,7 @@ import { StaffingConfiguration } from '../types';
 export declare class Staffing {
     private readonly options;
     static unauthorized: Subject<any>;
-    private static readonly _http;
+    private static _http;
     useCookies: boolean;
     accessToken: string;
     static httpInitialized: boolean;
@@ -38,6 +38,7 @@ export declare class Staffing {
     /**
      * Retrieves the HttpService created to connect to the Bullhorn RestApi
      */
-    static http(): AxiosInstance;
+    static http(callingIdentifier?: string): Promise<AxiosInstance>;
+    static makeCall(callingIdentifier?: string): AxiosInstance;
     ping(): Promise<AxiosResponse>;
 }

@@ -6,7 +6,7 @@ export declare enum FieldType {
     COMPOSITE = 1,
     TO_ONE = 2,
     TO_MANY = 3,
-    SCALAR = 4,
+    SCALAR = 4
 }
 export interface FieldMapOption {
     value?: any;
