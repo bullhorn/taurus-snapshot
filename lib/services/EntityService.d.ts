@@ -19,11 +19,13 @@ export declare class EntityService<T> {
     protected _fields: string[];
     type: string;
     meta: MetaService;
+    private readonly initialized;
     /**
      * constructor
      * @param  state data to inflate object with
      */
-    constructor(type: string);
+    constructor(type: string, callingIdentifier?: string);
+    initialize(callingIdentifier?: string): Promise<void>;
     /**
      * Define the fields to set or retrieve for the given entity. Getter and Setter methods will automagically be set up on the entity once the fields are defined.
      * @param args - fields can either be sent as a list of arguments or as an Array
