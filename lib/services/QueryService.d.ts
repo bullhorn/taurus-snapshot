@@ -13,11 +13,13 @@ export declare class QueryService<T> {
     protected _page: number;
     protected _endpoint: string;
     protected _lastResponse: BullhornListResponse<T>;
+    private readonly initialized;
     /**
      * constructor description
      * @param endpoint - Base Url for all relative http calls eg. 'query/JobOrder'
      */
-    constructor(entity: string);
+    constructor(entity: string, callingIdentifier?: string);
+    initialize(callingIdentifier?: string): Promise<void>;
     endpoint: string;
     readonly total: Promise<number>;
     readonly snapshot: BullhornListResponse<T>;
