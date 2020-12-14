@@ -28,13 +28,13 @@ export declare class Entity<T extends Identity> extends StatefulSubject<T> {
      * constructor
      * @param  state data to inflate object with
      */
-    constructor(type: string, options?: EntityOptions, state?: T);
+    constructor(type: string, options?: EntityOptions, state?: T, callingIdentifier?: string);
     /**
      * Define the fields to set or retrieve for the given entity. Getter and Setter methods will automagically be set up on the entity once the fields are defined.
      * @param args - Fields can either be sent as a list of arguments or as an Array.
      */
     fields(...args: any[]): Entity<T>;
-    private _proxy(field);
+    private _proxy;
     /**
      * Will merge object into the entity's parameter to be sent in any http request.
      * @param object - all additional parameters
@@ -69,5 +69,5 @@ export declare class Entity<T extends Identity> extends StatefulSubject<T> {
      * Sends a request to delete the entity
      */
     remove(): Promise<AxiosResponse>;
-    private _setUpObservable(state);
+    private _setUpObservable;
 }

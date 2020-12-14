@@ -19,15 +19,15 @@ export declare class EntityList<T> extends StatefulSubject<T[]> {
     private readonly $ref;
     private readonly $list;
     protected broker: EntityMessageBroker;
-    constructor(type: string, options?: EntityListOptions, state?: T[]);
-    protected getSearcher(type: string): EntityListReference<T>;
+    constructor(type: string, options?: EntityListOptions, state?: T[], callingIdentifier?: string);
+    protected getSearcher(type: string, callingIdentifier?: string): EntityListReference<T>;
     readonly lastAdded: Entity<T>;
     readonly info: any;
     findById(pk: number): Entity<T>;
     push(item: T): Promise<any>;
     update(item: EntityOperation, value: T): Promise<any>;
     remove(item: EntityOperation): Promise<any>;
-    private _setUpObservable();
-    private _eventHook(eventType);
-    private _checkOperationCases(item, cases);
+    private _setUpObservable;
+    private _eventHook;
+    private _checkOperationCases;
 }

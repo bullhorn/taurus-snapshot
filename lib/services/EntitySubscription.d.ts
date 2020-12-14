@@ -20,12 +20,14 @@ export declare class EntitySubscription {
     readonly eventTypes: string[];
     protected broker: EntityMessageBroker;
     _lastRequestId: number;
+    private readonly initialized;
     /**
      * constructor
      * @param  subscriptionId name of the subscription
      * @param  types List of Entity events to listen to
      */
     constructor(subscriptionId: string, types?: string[]);
+    initialize(): Promise<void>;
     readonly endpoint: string;
     subscribe(): Promise<BullhornSubscriptionResponse>;
     unsubscribe(): Promise<BullhornSubscriptionResponse>;
@@ -34,5 +36,5 @@ export declare class EntitySubscription {
      * @param id - Id of the Model to retrieve
      */
     get(): Promise<BullhornSubscriptionEvent[]>;
-    private _setUpObservable();
+    private _setUpObservable;
 }

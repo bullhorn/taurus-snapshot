@@ -12,7 +12,7 @@ export declare class Cache {
     /**
      * Logs all values in storage
      */
-    static list(): void;
+    static list(): Promise<void>;
     static exceedsStorageLimit(key: string, value: any): boolean;
     static getLocalStorageSize(): number;
     /**
@@ -21,22 +21,29 @@ export declare class Cache {
      * @param value - The value to be cached
      * @returns value - the value stored
      */
-    static put(key: string, value: any): any;
+    static put(key: string, value: any): Promise<any>;
     /**
      * Retrieves value from the cache stored with the key
      * @param key - The key used to identify the cached value
      * @returns value - the value cached
      */
-    static get(key: string): any;
+    static get(key: string, updateRankings?: boolean): Promise<any>;
     /**
      * Checks if a key is in the cache
      * @param key - The key used to identify the cached value
      * @returns value - if the cache contains the key
      */
-    static has(key: string): boolean;
+    static has(key: string): Promise<boolean>;
     /**
      * Removes a key from the cache
      * @param key - The key used to identify the cached value
      */
-    static remove(key: string): void;
+    static remove(key: string): Promise<void>;
+    /**
+     * Clears out the cache
+     * @param key - The key used to identify the cached value
+     */
+    static clear(): Promise<void>;
+    static getStorageRankings(): Promise<any>;
+    static handleStorageRankingUpdate(key: string): Promise<void>;
 }

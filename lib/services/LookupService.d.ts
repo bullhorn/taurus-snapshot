@@ -16,11 +16,13 @@ export declare class LookupService {
     records: BullhornLookupItem[];
     parameters: any;
     protected _endpoint: string;
+    private readonly initialized;
     /**
      * constructor description
      * @param endpoint - Base Url for all relative http calls eg. 'options/JobOrder'
      */
     constructor(types: string[], options?: LookupOptions);
+    initialize(): Promise<void>;
     endpoint: string;
     filter(value: string): this;
     count(value: number): this;
