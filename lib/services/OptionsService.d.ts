@@ -11,11 +11,13 @@ export declare class OptionsService {
     protected _page: number;
     protected _endpoint: string;
     protected _lastResponse: BullhornListResponse<FieldMapOption>;
+    private readonly initialized;
     /**
      * constructor description
      * @param endpoint - Base Url for all relative http calls eg. 'options/JobOrder'
      */
     constructor(optionType: string);
+    initialize(): Promise<void>;
     endpoint: string;
     readonly snapshot: BullhornListResponse<FieldMapOption>;
     filter(value: string): this;
@@ -25,5 +27,5 @@ export declare class OptionsService {
     params(object: any): this;
     get(add: any): Promise<BullhornListResponse<FieldMapOption>>;
     run(add: any): Promise<BullhornListResponse<FieldMapOption>>;
-    then(done: any, fail?: any): Promise<any>;
+    then(done: any, fail?: any): Promise<BullhornListResponse<FieldMapOption>>;
 }
