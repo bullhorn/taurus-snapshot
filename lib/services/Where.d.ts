@@ -23,7 +23,7 @@ export declare class Where {
      * @param  data the object that contains query string name value pairs
      * @return  resulting querystring
      */
-    static toQuerySyntax(data: any): string;
+    static toQuerySyntax(data: {}): string;
     /**
      * parses a query value recursively into a Database query
      * @param  key         name of the field
