@@ -88,6 +88,7 @@ export interface BullhornListResponse<T> {
     data: T[];
     messages?: BullhornMessage[];
     meta?: BullhornMetaResponse;
+    timestamp?: number;
 }
 export interface BullhornEntityResponse<T> {
     data: T;
