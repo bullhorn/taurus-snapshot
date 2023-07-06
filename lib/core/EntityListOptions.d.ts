@@ -9,6 +9,10 @@ export interface SerializedListOptions {
     limitTo?: number;
     filter?: Object;
     params?: Object;
+    where?: {
+        query: string;
+        form: any;
+    };
 }
 export interface EntityListOptions {
     [key: string]: any;
@@ -20,5 +24,12 @@ export interface EntityListOptions {
     limitTo?: number | Observable<number>;
     filter?: Object | Observable<Object>;
     params?: Object | Observable<Object>;
+    where?: {
+        query: string;
+        form: any;
+    } | Observable<{
+        query: string;
+        form: any;
+    }>;
 }
 export declare function observeListOptions(options: EntityListOptions, audit?: boolean): Observable<SerializedListOptions | null>;

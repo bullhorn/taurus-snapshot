@@ -29,6 +29,6 @@ export declare class Memory implements Storage {
     /**
      * The size of the storage object
      */
-    readonly length: number;
+    get length(): number;
     key(index: number): string | null;
 }
