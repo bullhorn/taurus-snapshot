@@ -5,6 +5,7 @@ export interface LookupOptions {
     filter?: string;
     count?: number;
     isCountPerEntity?: boolean;
+    start?: number;
 }
 /**
  * A base class for making Options calls via Rest
@@ -16,12 +17,15 @@ export declare class LookupService {
     records: BullhornLookupItem[];
     parameters: any;
     protected _endpoint: string;
+    private readonly initialized;
     /**
      * constructor description
      * @param endpoint - Base Url for all relative http calls eg. 'options/JobOrder'
      */
     constructor(types: string[], options?: LookupOptions);
-    endpoint: string;
+    initialize(): Promise<void>;
+    get endpoint(): string;
+    set endpoint(value: string);
     filter(value: string): this;
     count(value: number): this;
     params(object: LookupOptions): this;
