@@ -51,6 +51,7 @@ export interface BullhornSectionHeader {
     name: string;
     sortOrder: number;
     enabled: boolean;
+    icon: string;
 }
 export interface BullhornTrack {
     name: string;
@@ -88,6 +89,7 @@ export interface BullhornListResponse<T> {
     data: T[];
     messages?: BullhornMessage[];
     meta?: BullhornMetaResponse;
+    timestamp?: number;
 }
 export interface BullhornEntityResponse<T> {
     data: T;
