@@ -7,8 +7,9 @@ export declare class SearchService<T> extends QueryService<T> {
      * constructor description
      * @param endpoint - Base Url for all relative http calls eg. 'search/JobOrder'
      */
-    constructor(entity: any);
-    endpoint: string;
+    constructor(entity: any, routeUrl?: string);
+    get endpoint(): string;
+    set endpoint(value: string);
     sort(...args: any[]): this;
     where(value: any): this;
     query(value: any): this;
