@@ -1,7 +1,7 @@
 import { AxiosInstance, AxiosResponse } from 'axios';
 import { Subject } from 'rxjs';
-import { RestCredentials, StaffingAuthProvider } from './StaffingAuthProvider';
 import { StaffingConfiguration } from '../types';
+import { RestCredentials, StaffingAuthProvider } from './StaffingAuthProvider';
 /**
  * Used to authenticate with Bullhorn OAuth Service and track session.
  * @param config - object used to configure you bullhorn service
@@ -25,8 +25,8 @@ import { StaffingConfiguration } from '../types';
  */
 export declare class Staffing {
     private readonly options;
-    static unauthorized: Subject<any>;
-    private static readonly _http;
+    static unauthorized: Subject<unknown>;
+    private static _http;
     useCookies: boolean;
     accessToken: string;
     static httpInitialized: boolean;
@@ -38,6 +38,7 @@ export declare class Staffing {
     /**
      * Retrieves the HttpService created to connect to the Bullhorn RestApi
      */
-    static http(): AxiosInstance;
+    static http(callingIdentifier?: string): Promise<AxiosInstance>;
+    static makeCall(callingIdentifier?: string): AxiosInstance;
     ping(): Promise<AxiosResponse>;
 }
