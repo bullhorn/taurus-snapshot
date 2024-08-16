@@ -2,11 +2,11 @@
  * Enumeration of different field types associated with Bullhorn Data.
  */
 export declare enum FieldType {
-    ID = 0,
-    COMPOSITE = 1,
-    TO_ONE = 2,
-    TO_MANY = 3,
-    SCALAR = 4,
+    ID = "ID",
+    COMPOSITE = "COMPOSITE",
+    TO_ONE = "TO_ONE",
+    TO_MANY = "TO_MANY",
+    SCALAR = "SCALAR"
 }
 export interface FieldMapOption {
     value?: any;
@@ -15,8 +15,8 @@ export interface FieldMapOption {
 }
 export interface FieldMap {
     name: string;
-    type?: string;
-    dataType?: FieldType;
+    type?: FieldType | string;
+    dataType?: string;
     dataSpecialization?: string;
     maxLength?: number;
     confidential?: string;
@@ -37,6 +37,8 @@ export interface FieldMap {
     value?: any;
     interactions?: any[];
     defaultValue?: any;
+    systemRequired?: boolean;
+    disabled?: boolean;
 }
 export interface FieldLayout {
     name: string;
