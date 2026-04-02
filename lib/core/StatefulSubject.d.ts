@@ -6,8 +6,8 @@ export declare const EMPTY: Symbol;
 export declare class StatefulSubject<T> extends Subject<T> {
     private _value;
     constructor(_value?: T | Symbol);
-    readonly snapshot: T;
-    readonly value: T;
+    get snapshot(): T;
+    get value(): T;
     _subscribe(subscriber: any): Subscription;
     getValue(): T;
     hasValue(): boolean;

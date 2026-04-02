@@ -19,10 +19,10 @@ export declare class StaffingCredentialsAuthProvider implements StaffingAuthProv
 }
 export declare class StaffingOAuthProvider extends StaffingOAuthBaseProvider implements StaffingAuthProvider {
     credential(config: any): Promise<RestCredentials>;
-    private getAuthCode();
+    private getAuthCode;
 }
 export declare class StaffingOAuthPopupProvider extends StaffingOAuthBaseProvider implements StaffingAuthProvider {
     config: StaffingConfiguration;
     credential(config: any): Promise<RestCredentials>;
-    private getAuthCode(authWindow);
+    private getAuthCode;
 }
